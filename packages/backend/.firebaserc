@@ -1,6 +1,7 @@
 {
   "projects": {
-    "dev": "demo-p0tion",
-    "prod": "p0tion-ci-environment"
+    "prod": "galactica-ceremony-test",
+    "dev": "galactica-zkey",
+    "default": "galactica-ceremony-test"
   }
 }
