@@ -1,5 +1,5 @@
 {
-    "name": "@p0tion/phase2cli",
+    "name": "@galactica-net/phase2cli",
     "type": "module",
     "version": "1.2.6",
     "description": "All-in-one interactive command-line for interfacing with zkSNARK Phase 2 Trusted Setup ceremonies",
@@ -102,6 +102,7 @@
         "winston": "^3.8.2"
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
     }
 }

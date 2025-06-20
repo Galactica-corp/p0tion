@@ -49,16 +49,16 @@ Rounding up the option of using a unique tool for different ceremony stages make
 
 ## 🛠 Installation
 
-Install the `@p0tion/phase2cli` package globally
+Install the `@galactica-net/phase2cli` package globally
 
 ```bash
-npm i -g @p0tion/phase2cli
+npm i -g @galactica-net/phase2cli
 ```
 
 or run specific commands with `npx`:
 
 ```bash
-npx @p0tion/phase2cli contribute
+npx @galactica-net/phase2cli contribute
 ```
 
 > Please note that phase2cli only runs on Linux or Mac systems. If a Windows user, please install [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) first.

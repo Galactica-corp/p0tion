@@ -17,6 +17,7 @@ const listCeremonies = async () => {
 
         // loop through all ceremonies
         for (const ceremony of ceremonies) names.push(ceremony.data().prefix)
+        for (const ceremony of ceremonies) console.log(JSON.stringify(ceremony.data(), null, 2))
 
         // print them to the console
         console.log(names.join(", "))
