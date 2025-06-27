@@ -134,7 +134,7 @@ export const checkAndRemoveBlockingContributor = functions
                                 const timeoutExpirationDateInMsForVerificationCloudFunction =
                                     contributionStep === ParticipantContributionStep.VERIFYING &&
                                     !!verificationStartedAt
-                                        ? Number(verificationStartedAt) + 3540000 // 3540000 = 59 minutes in ms.
+                                        ? Number(verificationStartedAt) + 15 * 60000
                                         : 0
 
                                 // Assign the timeout type.
