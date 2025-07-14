@@ -126,14 +126,14 @@ export const checkAndRemoveBlockingContributor = functions
                                 const timeoutExpirationDateInMsForBlockingContributor =
                                     timeoutMechanismType === CeremonyTimeoutType.DYNAMIC
                                         ? Number(contributionStartedAt) +
-                                          Number(avgFullContribution) +
-                                          Number(timeoutDynamicThreshold)
+                                        Number(avgFullContribution) +
+                                        Number(timeoutDynamicThreshold)
                                         : (Number(contributionStartedAt) + Number(fixedTimeWindow) * 60000) // * 60000 = convert minutes to millis.
 
                                 // Case (D).
                                 const timeoutExpirationDateInMsForVerificationCloudFunction =
                                     contributionStep === ParticipantContributionStep.VERIFYING &&
-                                    !!verificationStartedAt
+                                        !!verificationStartedAt
                                         ? Number(verificationStartedAt) + 15 * 60000
                                         : 0
 
@@ -144,7 +144,8 @@ export const checkAndRemoveBlockingContributor = functions
                                     timeoutExpirationDateInMsForBlockingContributor < currentServerTimestamp &&
                                     (contributionStep === ParticipantContributionStep.DOWNLOADING ||
                                         contributionStep === ParticipantContributionStep.COMPUTING ||
-                                        contributionStep === ParticipantContributionStep.UPLOADING)
+                                        contributionStep === ParticipantContributionStep.UPLOADING ||
+                                        contributionStep === ParticipantContributionStep.COMPLETED)
                                 )
                                     timeoutType = TimeoutType.BLOCKING_CONTRIBUTION
 
@@ -167,7 +168,7 @@ export const checkAndRemoveBlockingContributor = functions
                                         LogLevel.WARN
                                     )
 
-                                        // Case (E).
+                                    // Case (E).
                                     let nextCurrentContributorId = ""
 
                                     // Prepare Firestore batch of txs.
@@ -287,8 +288,7 @@ export const resumeContributionAfterTimeoutExpiration = functions
         else logAndThrowError(SPECIFIC_ERRORS.SE_CONTRIBUTE_CANNOT_PROGRESS_TO_NEXT_CIRCUIT)
 
         printLog(
-            `Contributor ${userId} can retry the contribution for the circuit in position ${
-                contributionProgress + 1
+            `Contributor ${userId} can retry the contribution for the circuit in position ${contributionProgress + 1
             } after timeout expiration`,
             LogLevel.DEBUG
         )
